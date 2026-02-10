@@ -1,0 +1,14 @@
+# Rust
+/target
+**/target
+
+# Trunk
+/dist
+/.trunk
+
+# Node
+/node_modules
+/worker/node_modules
+
+# Env
+.DS_Store
