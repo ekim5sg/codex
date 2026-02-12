@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Wonder Card</title>
+    <link rel="stylesheet" href="./styles.css" integrity="sha384-Cn5srGsDu+oepO6o3hX1PMJWkbsRPWWNtF3hvTJSK4RcaDPSJFp6NDFVCrxvDn/u"/>
+	
+  <link rel="modulepreload" href="./daily-wonder-app.js" crossorigin="anonymous" integrity="sha384-ari1mz6ru38Gl/2pN7IjhP1yVJSY0PmMvQFsc4NQHsY9rxGOPLabuDWFMglnqgCW"><link rel="preload" href="./daily-wonder-app_bg.wasm" crossorigin="anonymous" integrity="sha384-JZSbxe8chn1vWxWEoL46LMk3fBmlPuuaeaLAYtPPoKH8w1ECzT2lTKtjEFqfbIXO" as="fetch" type="application/wasm"></head>
+  <body>
+    <div id="root"></div>
+  
+<script type="module">
+import init, * as bindings from './daily-wonder-app.js';
+const wasm = await init({ module_or_path: './daily-wonder-app_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>

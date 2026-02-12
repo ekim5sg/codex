@@ -1,0 +1,127 @@
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 32px;
+  padding: 32px;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0 0 24px;
+  color: #475569;
+}
+
+.refresh {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.refresh:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.refresh:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(99, 102, 241, 0.35);
+}
+
+.card {
+  margin-top: 24px;
+  padding: 24px;
+  background: #f1f5f9;
+  border-radius: 18px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #111827;
+}
+
+.card p {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.status {
+  margin-top: 24px;
+  color: #475569;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.actions { margin-top: 12px; display:flex; gap:10px; align-items:center; }
+
+.statusWrap{
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 12px; border-radius: 14px;
+}
+.statusText{ opacity:.9; }
+.status.subtle{ opacity:.7; }
+
+.spinner{
+  width: 16px; height: 16px; border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.25);
+  border-top-color: rgba(255,255,255,.85);
+  animation: spin .8s linear infinite;
+}
+@keyframes spin{ to{ transform: rotate(360deg); } }
+
+.card{
+  transform-origin: center top;
+  animation: popIn 280ms ease-out;
+}
+.card.fade{
+  animation: fadeFlip 260ms ease-out;
+}
+@keyframes popIn{
+  from{ opacity: 0; transform: translateY(6px) scale(.995); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeFlip{
+  from{ opacity: 0; transform: translateY(6px) rotateX(6deg) scale(.995); }
+  to{ opacity: 1; transform: translateY(0) rotateX(0) scale(1); }
+}
+
+.cardTop{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.pill{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  opacity: .85;
+  border: 1px solid rgba(255,255,255,.15);
+}
