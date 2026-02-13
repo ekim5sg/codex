@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="A tiny spark of curiosity and kindness. Fresh from the edge." />
+
+  <title>Daily Wonder Card</title>
+
+  <!-- ✅ Trunk-managed CSS (this is the fix) -->
+  <link rel="stylesheet" href="./styles.css" integrity="sha384-/kMsllKCCNaGubwlBbCtB736L3YyLMcPOfV4Yh9yBAfQTd21dCkWBbOGKYgUocXj"/>
+
+  <!-- Trunk directives -->
+  
+<script type="module">
+import init, * as bindings from './daily-wonder-app.js';
+const wasm = await init({ module_or_path: './daily-wonder-app_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+<link rel="modulepreload" href="./daily-wonder-app.js" crossorigin="anonymous" integrity="sha384-vzLsLKmpvQsS2xKoHho6xB/6yGhmNaM1UrvTyOb8zDxIEgA0rCwOotA2eUNKgJRC"><link rel="preload" href="./daily-wonder-app_bg.wasm" crossorigin="anonymous" integrity="sha384-3T20s+i9umLt6od9e18wIHBxjjXXlYcxulGzRe0i0YQ0sc0U9o3S63AU5DmqTbU8" as="fetch" type="application/wasm"></head>
+
+<body>
+  <div id="root"></div>
+</body>
+</html>
