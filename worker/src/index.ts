@@ -1,3 +1,7 @@
+// 2026-02-12: Cache hardening
+// Added `Vary: Origin` and explicit edge TTL (cf-cache-control + s-maxage)
+// to prevent stale/mismatched cached JSON schemas causing iOS Chrome
+// "missing field `card`" parse errors.
 import { Ai } from "@cloudflare/ai";
 
 interface Env {
