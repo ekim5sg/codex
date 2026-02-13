@@ -51,8 +51,11 @@ function json(data: unknown, status = 200, cacheSeconds = 0) {
   if (cacheSeconds > 0) {
     // Browser can revalidate; edge holds it for ttl.
     headers["cache-control"] = `public, max-age=0, s-maxage=${cacheSeconds}`;
+	headers["cf-cache-control"] = `max-age=${cacheSeconds}`;
+	headers["vary"] = "Origin";
   } else {
     headers["cache-control"] = "no-store";
+	headers["vary"] = "Origin";
   }
 
   return new Response(JSON.stringify(data), { status, headers });
