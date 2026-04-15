@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#ebe9e4" />
+  <title>Arrow Zen</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">🧩</div>
+        <div>
+          <h1>Arrow Zen</h1>
+          <p class="subtitle">
+            Tap an arrow only when its path stays open until a junction, exit, or stopping point.
+          </p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button id="btnHint" type="button">Hint</button>
+        <button id="btnRestart" type="button">Restart</button>
+        <button id="btnNext" type="button">Next Level</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="board-panel">
+        <div class="board-wrap">
+          <svg id="board" aria-label="Arrow Zen board"></svg>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <div class="card">
+          <h2>Status</h2>
+          <div class="stat-row"><span>Level</span><strong id="levelLabel">1 / 3</strong></div>
+          <div class="stat-row"><span>Moves</span><strong id="movesLabel">0</strong></div>
+          <div class="stat-row"><span>Remaining</span><strong id="remainingLabel">0</strong></div>
+          <div class="stat-row"><span>Clickable</span><strong id="clickableLabel">0</strong></div>
+          <div class="stat-row"><span>Unlocked</span><strong id="unlockedLabel">1</strong></div>
+        </div>
+
+        <div class="card">
+          <h2>How it works</h2>
+          <p>
+            Each arrow rests on a corridor. You can remove it only when its pointed direction has
+            a continuous open route ahead.
+          </p>
+          <p>
+            That route must continue until it reaches a junction, exit, or meaningful stopping
+            point. If it is blocked immediately, the arrow stays.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Progress</h2>
+          <div class="stat-row"><span>Best cleared</span><strong id="bestClearedLabel">0</strong></div>
+          <div class="stat-row"><span>Last finished</span><strong id="lastFinishedLabel">None</strong></div>
+        </div>
+
+        <div class="card message-card">
+          <h2>Message</h2>
+          <p id="message">Welcome to Arrow Zen.</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
